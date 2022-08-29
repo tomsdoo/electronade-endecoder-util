@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tomsdoo/electronade-endecoder-util/issues"
   },
-  "homepage": "https://github.com/tomsdoo/electronade-endecoder-util#readme"
+  "homepage": "https://github.com/tomsdoo/electronade-endecoder-util#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
 }
