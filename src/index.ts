@@ -23,4 +23,20 @@ export class SecretKey {
       salt: this.salt
     });
   }
+  public async encrypt(plainBuffer: Buffer){
+    // @ts-ignore
+    return globalThis[this.exposedName].endecoder.encrypt({
+      plainBuffer,
+      password: this.password,
+      salt: this.salt
+    });
+  }
+  public async decrypt(encodedText: string){
+    // @ts-ignore
+    return globalThis[this.exposedName].endecoder.decrypt({
+      encodedText,
+      password: this.password,
+      salt: this.salt
+    });
+  }
 }
