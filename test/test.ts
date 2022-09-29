@@ -25,91 +25,74 @@ describe("SecretKey class interfaces", () => {
         encode: ({
           plainText,
           password,
-          salt
+          salt,
         }: {
           plainText: string;
           password: string;
           salt: string;
-        }) => Promise.resolve([
-          plainText,
-          password,
-          salt
-        ].join("\n")),
+        }) => Promise.resolve([plainText, password, salt].join("\n")),
 
         decode: ({
           encodedText,
           password,
-          salt
+          salt,
         }: {
           encodedText: string;
           password: string;
           salt: string;
-        }) => Promise.resolve([
-          encodedText,
-          password,
-          salt
-        ].join("\n")),
+        }) => Promise.resolve([encodedText, password, salt].join("\n")),
 
         encrypt: ({
           plainBuffer,
           password,
-          salt
+          salt,
         }: {
           plainBuffer: Buffer;
           password: string;
           salt: string;
-        }) => Promise.resolve([
-          plainBuffer.toString("base64"),
-          password,
-          salt
-        ].join("\n")),
+        }) =>
+          Promise.resolve(
+            [plainBuffer.toString("base64"), password, salt].join("\n")
+          ),
 
         decrypt: ({
           encodedText,
           password,
-          salt
+          salt,
         }: {
           encodedText: string;
           password: string;
           salt: string;
-        }) => Promise.resolve([
-          encodedText,
-          password,
-          salt
-        ].join("\n"))
-      }
+        }) => Promise.resolve([encodedText, password, salt].join("\n")),
+      },
     };
   });
 
   it("encode()", async () => {
     assert.equal(
-      await new SecretKey(password, salt)
-        .encode(plainText),
-      [ plainText, password, salt ].join("\n")
-    )
+      await new SecretKey(password, salt).encode(plainText),
+      [plainText, password, salt].join("\n")
+    );
   });
 
   it("decode()", async () => {
     assert.equal(
-      await new SecretKey(password, salt)
-        .decode(encodedText),
-      [ encodedText, password, salt ].join("\n")
+      await new SecretKey(password, salt).decode(encodedText),
+      [encodedText, password, salt].join("\n")
     );
   });
 
   it("encrypt()", async () => {
     assert.equal(
-      await new SecretKey(password, salt)
-        .encrypt(plainBuffer),
-      [ plainBuffer.toString("base64"), password, salt ].join("\n")
+      await new SecretKey(password, salt).encrypt(plainBuffer),
+      [plainBuffer.toString("base64"), password, salt].join("\n")
     );
   });
 
   it("decrypt()", async () => {
     assert.equal(
-      await new SecretKey(password, salt)
-        .decrypt(encodedText),
-      [ encodedText, password, salt ].join("\n")
+      await new SecretKey(password, salt).decrypt(encodedText),
+      [encodedText, password, salt].join("\n")
     );
   });
 });
