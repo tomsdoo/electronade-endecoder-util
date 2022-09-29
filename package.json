@@ -1,8 +1,10 @@
 {
   "name": "electronade-endecoder-util",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "It's a package that provides some utilities for electronade-endecoder.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "scripts": {
     "build": "tsc --project tsconfig.cjs.json && tsc --project tsconfig.esm.json",
     "format": "npm run format:src && npm run format:test && npm run format:document",
@@ -30,7 +32,7 @@
     "type": "git",
     "url": "git+https://github.com/tomsdoo/electronade-endecoder-util.git"
   },
-  "keywords": [],
+  "keywords": [ "electronade" ],
   "author": "tom",
   "license": "MIT",
   "bugs": {
