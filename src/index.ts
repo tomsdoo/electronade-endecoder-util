@@ -10,7 +10,7 @@ export class SecretKey {
 
   public async encode(plainText: string): Promise<string> {
     // @ts-expect-error
-    return await globalThis[this.exposedName].endecoder.encode({
+    return globalThis[this.exposedName].endecoder.encode({
       plainText,
       password: this.password,
       salt: this.salt,
@@ -19,7 +19,7 @@ export class SecretKey {
 
   public async decode(encodedText: string): Promise<string> {
     // @ts-expect-error
-    return await globalThis[this.exposedName].endecoder.decode({
+    return globalThis[this.exposedName].endecoder.decode({
       encodedText,
       password: this.password,
       salt: this.salt,
@@ -28,7 +28,7 @@ export class SecretKey {
 
   public async encrypt(plainBuffer: Buffer): Promise<string> {
     // @ts-expect-error
-    return await globalThis[this.exposedName].endecoder.encrypt({
+    return globalThis[this.exposedName].endecoder.encrypt({
       plainBuffer,
       password: this.password,
       salt: this.salt,
@@ -37,7 +37,7 @@ export class SecretKey {
 
   public async decrypt(encodedText: string): Promise<Buffer> {
     // @ts-expect-error
-    return await globalThis[this.exposedName].endecoder.decrypt({
+    return globalThis[this.exposedName].endecoder.decrypt({
       encodedText,
       password: this.password,
       salt: this.salt,
