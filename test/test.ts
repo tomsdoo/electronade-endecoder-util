@@ -19,10 +19,10 @@ describe("SecretKey class interfaces", () => {
     encodedText = "encoded text";
     plainBuffer = randomBytes(1024);
 
-    // @ts-ignore
+    // @ts-expect-error
     globalThis.electronade = {
       endecoder: {
-        encode: ({
+        encode: async ({
           plainText,
           password,
           salt,
@@ -30,9 +30,9 @@ describe("SecretKey class interfaces", () => {
           plainText: string;
           password: string;
           salt: string;
-        }) => Promise.resolve([plainText, password, salt].join("\n")),
+        }) => await Promise.resolve([plainText, password, salt].join("\n")),
 
-        decode: ({
+        decode: async ({
           encodedText,
           password,
           salt,
@@ -40,9 +40,9 @@ describe("SecretKey class interfaces", () => {
           encodedText: string;
           password: string;
           salt: string;
-        }) => Promise.resolve([encodedText, password, salt].join("\n")),
+        }) => await Promise.resolve([encodedText, password, salt].join("\n")),
 
-        encrypt: ({
+        encrypt: async ({
           plainBuffer,
           password,
           salt,
@@ -51,11 +51,11 @@ describe("SecretKey class interfaces", () => {
           password: string;
           salt: string;
         }) =>
-          Promise.resolve(
+          await Promise.resolve(
             [plainBuffer.toString("base64"), password, salt].join("\n")
           ),
 
-        decrypt: ({
+        decrypt: async ({
           encodedText,
           password,
           salt,
@@ -63,7 +63,7 @@ describe("SecretKey class interfaces", () => {
           encodedText: string;
           password: string;
           salt: string;
-        }) => Promise.resolve([encodedText, password, salt].join("\n")),
+        }) => await Promise.resolve([encodedText, password, salt].join("\n")),
       },
     };
   });
