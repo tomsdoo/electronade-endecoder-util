@@ -4,6 +4,12 @@ It's a package that provides some utilities for `electronade-endecoder`.
 
 It's an optional module for `electronade-endecoder` so `electronade-endecoder` should be installed before using `electronade-endecoder-util`.
 
+![npm](https://img.shields.io/npm/v/electronade-endecoder-util)
+![NPM](https://img.shields.io/npm/l/electronade-endecoder-util)
+![npms.io (quality)](https://img.shields.io/npms-io/quality-score/electronade-endecoder-util)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/electronade-endecoder-util)
+![Maintenance](https://img.shields.io/maintenance/yes/2022)
+
 ## Installation
 ``` shell
 npm install electronade-endecoder-util
